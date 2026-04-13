@@ -84,7 +84,8 @@
 
 - Mintimate / `oh-my-rime`
 - iDvel / `rime-ice`
-- 你提供的 Windows 搜狗 11.11 小浪双拼键位文件
+- 双拼方案作者提供的 Windows 搜狗 11.11 小浪双拼键位文件(ini格式)
+- OpenAI Codex
 
 ## 许可证
 
