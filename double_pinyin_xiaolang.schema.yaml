@@ -1,0 +1,403 @@
+# Rime schema
+# encoding: utf-8
+
+# 适配了双拼
+# 双拼键位映射基于用户提供的 Windows 搜狗 11.11 小浪双拼文件
+
+schema:
+  schema_id: double_pinyin_xiaolang
+  name: "小浪双拼-薄荷定制"
+  version: "26.04.13"
+  author:
+    - Mintimate
+    - layout adapted from a user-provided Sogou 11.11 Xiaolang file
+  description: |
+    薄荷拼音 - 小浪双拼适配方案
+  dependencies:
+    - melt_eng
+    - radical_pinyin
+    - wubi98_mint
+    - stroke
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 英文 ]
+  - name: emoji_suggestion
+    states: [ "😣️","😁️"]
+    reset: 1
+  - name: full_shape
+    states: [ 半角, 全角 ]
+    reset: 0
+  - name: tone_display
+    states: [ 声杳, 声起 ]
+    reset: 0
+  - name: transcription
+    states: [ 简体 , 繁体 ]
+    reset: 0
+  - name: ascii_punct
+    states: [ "。，", "．，" ]
+    reset: 0
+  - name: chaifen
+    states: [ 🙈, 🐵 ]
+    reset: 0
+
+engine:
+  processors:
+    - lua_processor@*select_character
+    - lua_processor@*codeLengthLimit_processor
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - affix_segmentor@wubi98_mint
+    - affix_segmentor@radical_reverse_lookup
+    - affix_segmentor@stroke
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - lua_translator@*shijian
+    - lua_translator@*number_translator
+    - lua_translator@*chineseLunarCalendar_translator
+    - lua_translator@*mint_calculator_translator
+    - table_translator@melt_eng
+    - table_translator@cn_en
+    - reverse_lookup_translator@radical_reverse_lookup
+    - reverse_lookup_translator@wubi98_mint
+    - reverse_lookup_translator@stroke
+    - lua_translator@*force_gc
+  filters:
+    - lua_filter@*corrector_filter
+    - lua_filter@*super_preedit
+    - lua_filter@*autocap_filter
+    - simplifier@emoji_suggestion
+    - simplifier@transcription_cc
+    - simplifier@chaifen_cc
+    - lua_filter@*reduce_english_filter
+    - uniquifier
+
+date_formats:
+  - "Y年m月d日"
+  - "Y-m-d"
+  - "Y/m/d"
+  - "Y.m.d"
+  - "Ymd"
+  - "Y年n月j日"
+  - "y年n月j日"
+  - "n月j日"
+time_formats:
+  - "H:M"
+  - "H点M分"
+  - "H:M:S"
+  - "H时M分S秒"
+  - "AI:M"
+  - "I:M P"
+datetime_formats:
+  - "Y-m-d H:M:S"
+  - "Y-m-dTH:M:S O"
+  - "YmdHMS"
+  - "Y年m月d日 H点M分"
+  - "y/m/d I:M p"
+
+transcription_cc:
+  option_name: transcription
+  opencc_config: s2t.json
+  tips: none
+  excluded_types: [ reverse_lookup ]
+
+emoji_suggestion:
+  opencc_config: emoji.json
+  option_name: emoji_suggestion
+  tips: all
+  inherit_comment: false
+
+chaifen_cc:
+  opencc_config: fly_Chaifen.json
+  option_name: chaifen
+  show_in_comment: true
+  comment_format:
+    - "xform/&nbsp;/ /"
+  tags:
+    - abc
+    - reverse_lookup
+  tips: char
+
+codeLengthLimit_processor: 25
+
+reduce_english_filter:
+  mode: custom
+  idx: 2
+  words: [
+    aid, ann,
+    bail, bait, bam, band, bans, bat, bay, bend, bent, benz, bib, bid, bien, biz, boc, bop, bos, bud, buf, bach, bench, bush,
+    cab, cad, cain, cam, cans, cap, cas, cef, chad, chan, chap, chef, cher, chew, chic, chin, chip, chit, coup, cum, cunt, cur, couch,
+    dab, dag, dal, dam, dent, dew, dial, diet, dim, din, dip, dis, dit, doug, dub, dug, dunn,
+    fab, fax, fob, fog, foul, fur,
+    gag, gail, gain, gal, gam, gaol, ged, gel, ger, guam, gus, gut,
+    hail, ham, hank, hans, hat, hay, heil, heir, hem, hep, hud, hum, hung, hunk, hut, hush,
+    jim, jug,
+    kat,
+    lab, lad, lag, laid, lam, laos, lap, lat, lax, lay, led, leg, lex, liam, lib, lid, lied, lien, lies, linn, lip, lit, liz, lob, lug, lund, lung, lux, lash, loch, lush,
+    mag, maid, mann, mar, mat, med, mel, mend, mens, ment, mil, mins, mint, mob, moc, mop, mos, mot, mud, mug, mum, mesh,
+    nap, nat, nay, neil, nib, nip, noun, nous, nun, nut, nail, nash,
+    pac, paid, pail, pain, pair, pak, pal, pam, pans, pant, pap, par, pat, paw, pax, pens, pic, pier, pies, pins, pint, pit, pix, pod, pop, pos, pot, pour, pow, pub, pinch, pouch,
+    rand, rant, rent, rep, res, ret, rex, rib, rid, rig, rim, rub, rug, rum, runc, runs, ranch,
+    sac, sail, sal, sam, sans, sap, saw, sax, sew, sham, shaw, shin, sig, sin, sip, sis, suit, sung, suns, sup, sur, sus,
+    tad, tail, taj, tar, tax, tec, ted, tel, ter, tex, tic, tied, tier, ties, tim, tin, tit, tour, tout, tum,
+    wag, wand, womens, wap, wax, weir, won,
+    yan, yen,
+    zach
+  ]
+
+chineseLunarCalendar_translator: lunar
+
+translator:
+  dictionary: rime_mint
+  prism: double_pinyin_xiaolang
+  enable_word_completion: true
+  spelling_hints: 8
+  always_show_comments: true
+  initial_quality: 1.2
+  comment_format: {comment}
+  enable_user_dict: true
+  preedit_format:
+    - "xform/(^|[ '])aa/$1①/"
+    - "xform/(^|[ '])ai/$1②/"
+    - "xform/(^|[ '])an/$1③/"
+    - "xform/(^|[ '])ah/$1④/"
+    - "xform/(^|[ '])ao/$1⑤/"
+    - "xform/(^|[ '])uu/$1⑥/"
+    - "xform/(^|[ '])ui/$1⑦/"
+    # 小浪零声母 en / eng 同码为 un，preedit 默认回显 en。
+    - "xform/(^|[ '])un/$1⑧/"
+    - "xform/(^|[ '])ur/$1⑨/"
+    - "xform/(^|[ '])oo/$1⑩/"
+    - "xform/(^|[ '])ou/$1⑪/"
+    - xform/(\w)w/$1Ⓦ/
+    - xform/(\w)r/$1Ⓡ/
+    - xform/(\w)t/$1Ⓣ/
+    - xform/([nl])y/$1Ⓨ/
+    - xform/(\w)y/$1ⓨ/
+    - xform/([dtnlgkheivrzcs])o/$1Ⓞ/
+    - xform/(\w)p/$1Ⓟ/
+    - xform/(\w)s/$1Ⓢ/
+    - xform/([dtgkheivrzcs])d/$1Ⓓ/
+    - xform/(\w)d/$1ⓓ/
+    - xform/([gkheivrln])f/$1Ⓕ/
+    - xform/(\w)f/$1ⓕ/
+    - xform/([dtnlgkhjqxyeivrzcs])g/$1Ⓖ/
+    - xform/(\w)h/$1Ⓗ/
+    - xform/([jqxy])j/$1Ⓙ/
+    - xform/(\w)j/$1ⓙ/
+    - xform/([bpmfdtnljqx])k/$1Ⓚ/
+    - xform/(\w)k/$1ⓚ/
+    - xform/(\w)l/$1Ⓛ/
+    - xform/([gkheiv])z/$1Ⓩ/
+    - xform/([jqxy])x/$1Ⓧ/
+    - xform/([nl])x/$1ⓧ/
+    - xform/([bpmfdtnljqx])c/$1Ⓒ/
+    - xform/([gkheiv])v/$1Ⓥ/
+    - xform/(\w)v/$1ⓥ/
+    - xform/([jqxy])b/$1Ⓑ/
+    - xform/([nl])b/$1ⓑ/
+    - xform/(\w)n/$1Ⓝ/
+    - xform/([bpmfdtnljqxy])m/$1Ⓜ/
+    - xform/(\w)m/$1ⓜ/
+    - "xform/(^|[ '])e/$1zh/"
+    - "xform/(^|[ '])i/$1ch/"
+    - "xform/(^|[ '])v/$1sh/"
+    - xform/Ⓦ/ei/
+    - xform/Ⓡ/ou/
+    - xform/Ⓣ/iu/
+    - xform/Ⓨ/ün/
+    - xform/ⓨ/un/
+    - xform/Ⓞ/uo/
+    - xform/Ⓟ/ie/
+    - xform/Ⓢ/ao/
+    - xform/Ⓓ/ui/
+    - xform/ⓓ/in/
+    - xform/Ⓕ/ua/
+    - xform/ⓕ/ian/
+    - xform/Ⓖ/uan/
+    - xform/Ⓗ/ang/
+    - xform/Ⓙ/iong/
+    - xform/ⓙ/an/
+    - xform/Ⓚ/ia/
+    - xform/ⓚ/ai/
+    - xform/Ⓛ/ong/
+    - xform/Ⓩ/uang/
+    - xform/Ⓧ/u/
+    - xform/ⓧ/ü/
+    - xform/Ⓒ/iao/
+    - xform/Ⓥ/uai/
+    - xform/ⓥ/ing/
+    - xform/Ⓑ/ue/
+    - xform/ⓑ/ve/
+    - xform/Ⓝ/eng/
+    - xform/Ⓜ/iang/
+    - xform/ⓜ/en/
+    - xform/①/a/
+    - xform/②/ai/
+    - xform/③/an/
+    - xform/④/ang/
+    - xform/⑤/ao/
+    - xform/⑥/e/
+    - xform/⑦/ei/
+    - xform/⑧/en/
+    - xform/⑨/er/
+    - xform/⑩/o/
+    - xform/⑪/ou/
+    - xform/ü/v/
+
+melt_eng:
+  dictionary: melt_eng
+  enable_sentence: false
+  enable_user_dict: false
+  initial_quality: 0.8
+  comment_format:
+    - xform/.*//
+
+cn_en:
+  dictionary: ""
+  user_dict: dicts/rime_ice.cn_en
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 0.5
+  comment_format:
+    - xform/^.+$//
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
+  delimiter: " '"
+  algebra:
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
+    - xform/^ng$/eng/
+    - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/
+    - erase/^xx$/
+    - derive/^([jqxy])u$/$1v/
+    - xform/^a$/AA/
+    - xform/^ai$/AI/
+    - xform/^an$/AN/
+    - xform/^ang$/AH/
+    - xform/^ao$/AO/
+    - xform/^e$/UU/
+    - xform/^ei$/UI/
+    - xform/^en$/UN/
+    - xform/^eng$/UN/
+    - xform/^er$/UR/
+    - xform/^o$/OO/
+    - xform/^ou$/OU/
+    - xform/^zh/E/
+    - xform/^ch/I/
+    - xform/^sh/V/
+    - xform/iu$/T/
+    - xform/(.)ei$/$1W/
+    - xform/(.)ou$/$1R/
+    - xform/[uv]n$/Y/
+    - xform/uo$/O/
+    - xform/ie$/P/
+    - xform/uang$/Z/
+    - xform/(.)iao$/$1C/
+    - xform/ing$|uai$/V/
+    - xform/(.)iang$/$1M/
+    - xform/(.)ao$/$1S/
+    - xform/in$|ui$/D/
+    - xform/ian$|ua$/F/
+    - xform/uan$/G/
+    - xform/(.)ang$/$1H/
+    - xform/iong$/$1J/
+    - xform/(.)an$/$1J/
+    - xform/ia$|ai$/K/
+    - xform/ong$/L/
+    - xform/[uv]e$/B/
+    - xform/(.)eng$/$1N/
+    - xform/(.)en$/$1M/
+    - xform/v$/X/
+    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/
+
+wubi98_mint:
+  tag: wubi98_mint
+  dictionary: wubi98_mint
+  enable_user_dict: false
+  enable_completion: true
+  prefix: "Uw"
+  tips: 〔五笔〕
+
+radical_reverse_lookup:
+  tag: radical_lookup
+  dictionary: radical_pinyin
+  enable_user_dict: false
+  prefix: "Uu"
+  tips: "〔拆字〕"
+
+reverse_lookup:
+  tags: [wubi98_mint,stroke,radical_lookup]
+  overwrite_comment: true
+  dictionary: rime_mint
+
+stroke:
+  tag: stroke
+  dictionary: stroke
+  enable_user_dict: false
+  prefix: "Ui"
+  tips: 〔笔画〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+
+punctuator:
+  import_preset: symbols
+  half_shape:
+    "#": "#"
+    "*": "*"
+    ".": { commit: 。 }
+    "`": "`"
+    "~": "~"
+    "@": "@"
+    "=": "="
+    "/": ["/", "÷"]
+    "\\": "、"
+    "_": "──"
+    "'": { pair: ["「", "」"] }
+    "[": ["【", "["]
+    "]": ["】", "]"]
+    "$": ["¥", "$", "€", "£", "¢", "¤"]
+    "<": ["《", "〈", "«", "<"]
+    ">": ["》", "〉", "»", ">"]
+
+recognizer:
+  import_preset: default
+  patterns:
+    url: "^[a-z]+[.].+$"
+    punct: "^/([0-9]0?|[a-zA-Z]+)$"
+    wubi98_mint: "Uw[a-z]*'?$"
+    stroke: "Ui[a-z]*'?$"
+    radical_lookup: "Uu[a-z]*'?$"
+    rmb: "^R[0-9]+[.]?[0-9]*"
+    expression: "^=.*$"
+    gregorian_to_lunar: "^N[0-9]{1,8}"
+    uppercase: ""
+
+key_binder:
+  import_preset: default
+  shijian_keys: ["o"]
+  bindings:
+    - {accept: "Control+Shift+E", toggle: emoji_suggestion, when: always}
+    - {accept: "Control+Shift+C", toggle: chaifen, when: always}
+    - {accept: "Control+Shift+1", toggle: transcription, when: has_menu}
+    - {accept: "Control+Shift+exclam", toggle: transcription, when: has_menu}
+
+menu:
+  page_size: 6

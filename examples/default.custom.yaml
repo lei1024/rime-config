@@ -1,0 +1,7 @@
+# 示例文件。
+# 请把下面这一项合并到你自己的 schema_list 中，不要整份覆盖现有 default.custom.yaml。
+
+patch:
+  schema_list:
+    - schema: rime_mint
+    - schema: double_pinyin_xiaolang
