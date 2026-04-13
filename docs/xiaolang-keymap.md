@@ -2,6 +2,8 @@
 
 这份码表以当前仓库里的 [double_pinyin_xiaolang.schema.yaml](../double_pinyin_xiaolang.schema.yaml) 为准。
 
+![小浪双拼键盘图](./assets/xiaolang-keymap.png)
+
 ## 键盘图
 
 ```text

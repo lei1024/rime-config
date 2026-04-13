@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980" role="img" aria-labelledby="title desc">
+  <title id="title">小浪双拼键盘图</title>
+  <desc id="desc">Rime 小浪双拼键位速查图，包含声母、韵母和零声母提示。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f8f4; }
+      .panel { fill: #ffffff; stroke: #d7dccf; stroke-width: 2; }
+      .key { fill: #eef4e7; stroke: #93a47b; stroke-width: 2; rx: 14; ry: 14; }
+      .key-alt { fill: #f3efe4; stroke: #b29762; stroke-width: 2; rx: 14; ry: 14; }
+      .key-multi { fill: #e9f0f8; stroke: #6f8fb8; stroke-width: 2; rx: 14; ry: 14; }
+      .title { font: 700 34px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #253018; }
+      .subtitle { font: 400 18px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #56634a; }
+      .keycap { font: 700 28px 'SFNSMono', 'Menlo', monospace; fill: #1f2618; }
+      .label { font: 600 20px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #2f4120; }
+      .label-alt { font: 600 20px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #4d3b16; }
+      .label-multi { font: 600 20px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #224466; }
+      .small { font: 500 16px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #59664e; }
+      .section { font: 700 22px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #253018; }
+      .mono { font: 600 18px 'SFNSMono', 'Menlo', monospace; fill: #1f2618; }
+      .note { font: 400 18px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #4c5644; }
+      .warn { font: 600 18px 'Hiragino Sans GB', 'PingFang SC', sans-serif; fill: #7a4d12; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="980"/>
+
+  <text class="title" x="72" y="72">小浪双拼键盘图</text>
+  <text class="subtitle" x="72" y="108">适用于本仓库 Rime 配置。表里没列出的韵母默认按原拼输入。</text>
+
+  <rect class="panel" x="54" y="138" width="1292" height="510" rx="22" ry="22"/>
+
+  <!-- Row 1 -->
+  <g transform="translate(82,178)">
+    <g transform="translate(0,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">Q</text>
+    </g>
+    <g transform="translate(124,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">W</text>
+      <text class="label" x="26" y="84">ei</text>
+    </g>
+    <g transform="translate(248,0)">
+      <rect class="key-alt" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">E</text>
+      <text class="label-alt" x="25" y="84">zh</text>
+    </g>
+    <g transform="translate(372,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">R</text>
+      <text class="label" x="24" y="84">ou</text>
+    </g>
+    <g transform="translate(496,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">T</text>
+      <text class="label" x="30" y="84">iu</text>
+    </g>
+    <g transform="translate(620,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">Y</text>
+      <text class="label-multi" x="24" y="78">un</text>
+      <text class="label-multi" x="24" y="106">vn</text>
+    </g>
+    <g transform="translate(744,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">U</text>
+    </g>
+    <g transform="translate(868,0)">
+      <rect class="key-alt" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">I</text>
+      <text class="label-alt" x="25" y="84">ch</text>
+    </g>
+    <g transform="translate(992,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">O</text>
+      <text class="label" x="28" y="84">uo</text>
+    </g>
+    <g transform="translate(1116,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">P</text>
+      <text class="label" x="30" y="84">ie</text>
+    </g>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(142,332)">
+    <g transform="translate(0,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">A</text>
+    </g>
+    <g transform="translate(124,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">S</text>
+      <text class="label" x="29" y="84">ao</text>
+    </g>
+    <g transform="translate(248,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">D</text>
+      <text class="label-multi" x="31" y="78">in</text>
+      <text class="label-multi" x="31" y="106">ui</text>
+    </g>
+    <g transform="translate(372,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">F</text>
+      <text class="label-multi" x="20" y="78">ian</text>
+      <text class="label-multi" x="31" y="106">ua</text>
+    </g>
+    <g transform="translate(496,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">G</text>
+      <text class="label" x="20" y="84">uan</text>
+    </g>
+    <g transform="translate(620,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">H</text>
+      <text class="label" x="20" y="84">ang</text>
+    </g>
+    <g transform="translate(744,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">J</text>
+      <text class="label-multi" x="31" y="78">an</text>
+      <text class="label-multi" x="13" y="106">iong</text>
+    </g>
+    <g transform="translate(868,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">K</text>
+      <text class="label-multi" x="31" y="78">ia</text>
+      <text class="label-multi" x="31" y="106">ai</text>
+    </g>
+    <g transform="translate(992,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">L</text>
+      <text class="label" x="20" y="84">ong</text>
+    </g>
+  </g>
+
+  <!-- Row 3 -->
+  <g transform="translate(244,486)">
+    <g transform="translate(0,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">Z</text>
+      <text class="label" x="8" y="84">uang</text>
+    </g>
+    <g transform="translate(124,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">X</text>
+      <text class="label" x="40" y="84">v</text>
+    </g>
+    <g transform="translate(248,0)">
+      <rect class="key" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">C</text>
+      <text class="label" x="18" y="84">iao</text>
+    </g>
+    <g transform="translate(372,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">V</text>
+      <text class="label-multi" x="24" y="72">sh</text>
+      <text class="label-multi" x="20" y="98">ing</text>
+      <text class="label-multi" x="16" y="122">uai</text>
+    </g>
+    <g transform="translate(496,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">B</text>
+      <text class="label-multi" x="30" y="78">ue</text>
+      <text class="label-multi" x="30" y="106">ve</text>
+    </g>
+    <g transform="translate(620,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">N</text>
+      <text class="label-multi" x="20" y="92">eng</text>
+    </g>
+    <g transform="translate(744,0)">
+      <rect class="key-multi" x="0" y="0" width="110" height="130"/>
+      <text class="keycap" x="24" y="38">M</text>
+      <text class="label-multi" x="24" y="78">en</text>
+      <text class="label-multi" x="12" y="106">iang</text>
+    </g>
+  </g>
+
+  <!-- Notes panel -->
+  <rect class="panel" x="54" y="684" width="1292" height="240" rx="22" ry="22"/>
+  <text class="section" x="82" y="728">零声母速查</text>
+  <text class="mono" x="82" y="768">a=aa   ai=ai   an=an   ang=ah   ao=ao   e=uu</text>
+  <text class="mono" x="82" y="804">ei=ui   en=un   eng=un   er=ur   o=oo   ou=ou</text>
+
+  <text class="section" x="82" y="852">易混提示</text>
+  <text class="warn" x="82" y="888">er 不是 er，而是 ur。因为 E=zh，R=ou，所以 er 会被解释成 zhou。</text>
+  <text class="note" x="82" y="916">例：而 / 二 / 儿 / 耳 = ur， 而且 = urqp。需要时可用单引号手动分词：ur'qp</text>
+
+  <text class="small" x="1086" y="918">Generated from repository keymap data</text>
+</svg>

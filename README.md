@@ -79,6 +79,7 @@
 - [double_pinyin_xiaolang.schema.yaml](./double_pinyin_xiaolang.schema.yaml): 小浪双拼主方案
 - [examples/default.custom.yaml](./examples/default.custom.yaml): `schema_list` 接入示例
 - [docs/xiaolang-keymap.md](./docs/xiaolang-keymap.md): 小浪双拼码表与键盘图
+- [docs/assets/xiaolang-keymap.png](./docs/assets/xiaolang-keymap.png): PNG 键盘图
 - [LICENSE](./LICENSE): GPL-3.0 许可证文本
 
 ## 致谢
