@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">rime-config：小浪双拼 for Rime</title>
+  <desc id="desc">一个将 Windows 搜狗 11.11 小浪双拼键位带入 Rime 薄荷拼音生态的增量 schema，右侧展示真实键位映射。</desc>
+  <defs>
+    <style>
+      .eyebrow { font-family: Arial, "PingFang SC", sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 1.2px; fill: #66745c; }
+      .brand { font-family: Menlo, "SFMono-Regular", monospace; font-size: 54px; font-weight: 700; fill: #1f2618; }
+      .title { font-family: Arial, "PingFang SC", sans-serif; font-size: 38px; font-weight: 700; fill: #253018; }
+      .body { font-family: Arial, "PingFang SC", sans-serif; font-size: 20px; font-weight: 400; fill: #56634a; }
+      .meta { font-family: Menlo, "SFMono-Regular", monospace; font-size: 15px; font-weight: 700; letter-spacing: .4px; fill: #56634a; }
+      .panel-label { font-family: Menlo, "SFMono-Regular", monospace; font-size: 15px; font-weight: 700; letter-spacing: 1px; fill: #cbd6c2; }
+      .keycap { font-family: Menlo, "SFMono-Regular", monospace; font-size: 29px; font-weight: 700; fill: #20271d; }
+      .mapping { font-family: Arial, "PingFang SC", sans-serif; font-size: 22px; font-weight: 700; fill: #2f4120; }
+      .mapping-alt { font-family: Arial, "PingFang SC", sans-serif; font-size: 22px; font-weight: 700; fill: #4d3b16; }
+      .mapping-multi { font-family: Arial, "PingFang SC", sans-serif; font-size: 21px; font-weight: 700; fill: #224466; }
+      .panel-note { font-family: Arial, "PingFang SC", sans-serif; font-size: 15px; font-weight: 400; fill: #aab8a1; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="420" rx="20" fill="#f7f8f4"/>
+  <path d="M58 48H1142" stroke="#d7dccf" stroke-width="2"/>
+
+  <text class="eyebrow" x="60" y="82">RIME CONFIG / INCREMENTAL SCHEMA</text>
+  <text class="meta" x="60" y="111">WINDOWS SOGOU 11.11 LAYOUT  →  RIME</text>
+  <text class="brand" x="60" y="174">rime-config</text>
+  <text class="title" x="60" y="228">小浪双拼，回到 Rime</text>
+  <text class="body" x="60" y="268">把熟悉的键位接入薄荷拼音生态，保留常用的输入能力。</text>
+  <text class="body" x="60" y="299">复制一个 schema，合并一段配置，重新部署即可开始输入。</text>
+
+  <g transform="translate(60 340)">
+    <rect x="0" y="0" width="86" height="34" rx="17" fill="#e9f0e8" stroke="#93a47b" stroke-width="2"/>
+    <text class="meta" x="20" y="22">RIME</text>
+    <rect x="98" y="0" width="132" height="34" rx="17" fill="#f3efe4" stroke="#b29762" stroke-width="2"/>
+    <text class="meta" x="116" y="22">OH-MY-RIME</text>
+    <rect x="242" y="0" width="96" height="34" rx="17" fill="#e9f0f8" stroke="#6f8fb8" stroke-width="2"/>
+    <text class="meta" x="260" y="22">GPL-3.0</text>
+  </g>
+
+  <g transform="translate(748 54)">
+    <rect width="392" height="312" rx="18" fill="#20271d"/>
+    <text class="panel-label" x="28" y="34">KEYMAP / XIAOLANG</text>
+    <path d="M28 52H364" stroke="#455340" stroke-width="1"/>
+
+    <g transform="translate(28 76)">
+      <rect width="98" height="92" rx="12" fill="#eef4e7" stroke="#93a47b" stroke-width="2"/>
+      <text class="keycap" x="18" y="34">E</text>
+      <text class="mapping-alt" x="18" y="68">zh</text>
+    </g>
+    <g transform="translate(146 76)">
+      <rect width="98" height="92" rx="12" fill="#eef4e7" stroke="#93a47b" stroke-width="2"/>
+      <text class="keycap" x="18" y="34">I</text>
+      <text class="mapping-alt" x="18" y="68">ch</text>
+    </g>
+    <g transform="translate(264 76)">
+      <rect width="98" height="92" rx="12" fill="#e9f0f8" stroke="#6f8fb8" stroke-width="2"/>
+      <text class="keycap" x="18" y="34">V</text>
+      <text class="mapping-multi" x="18" y="62">sh</text>
+      <text class="mapping-multi" x="18" y="84">ing/uai</text>
+    </g>
+
+    <g transform="translate(28 188)">
+      <rect width="98" height="92" rx="12" fill="#eef4e7" stroke="#93a47b" stroke-width="2"/>
+      <text class="keycap" x="18" y="34">C</text>
+      <text class="mapping" x="18" y="68">iao</text>
+    </g>
+    <g transform="translate(146 188)">
+      <rect width="98" height="92" rx="12" fill="#e9f0f8" stroke="#6f8fb8" stroke-width="2"/>
+      <text class="keycap" x="18" y="34">M</text>
+      <text class="mapping-multi" x="18" y="62">en</text>
+      <text class="mapping-multi" x="18" y="84">iang</text>
+    </g>
+    <g transform="translate(264 188)">
+      <rect width="98" height="92" rx="12" fill="#f3efe4" stroke="#b29762" stroke-width="2"/>
+      <text class="keycap" x="18" y="34">Y</text>
+      <text class="mapping-alt" x="18" y="62">un</text>
+      <text class="mapping-alt" x="18" y="84">vn</text>
+    </g>
+    <text class="panel-note" x="28" y="300">声母、韵母与复用键位的真实速查</text>
+  </g>
+</svg>
