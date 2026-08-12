@@ -4,7 +4,7 @@
 
 # 小浪双拼 for Rime
 
-把 Windows 搜狗 11.11 可识别的小浪双拼键位，接入现有的 Rime / 薄荷拼音环境。这个仓库提供的是一个**可叠加的增量 schema**，不是完整的 Rime 整包。
+把 Windows 搜狗 11.11 可识别的小浪双拼（XiaoLang Double Pinyin）键位，接入现有的 Rime / 薄荷拼音环境。这个仓库提供的是一个**可叠加的增量 schema**，不是完整的 Rime 整包。
 
 如果你已经安装了 Mintimate 的 [`oh-my-rime`](https://github.com/Mintimate/oh-my-rime)，复制一个 schema、合并一段配置并重新部署，就可以保留原有词库、Lua 和反查能力，直接使用小浪双拼。
 
